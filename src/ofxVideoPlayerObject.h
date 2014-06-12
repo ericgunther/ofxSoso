@@ -42,6 +42,8 @@ public:
 	void						reset();
   void            useShaders(string vert, string frag);
   
+  void            reload();
+  
 public:
 	bool						isCentered;
 	bool						isAutoIdling;
@@ -49,4 +51,5 @@ public:
   ofxAVFVideoPlayer *player;
   ofShader        *mShader = 0;
   
+  char             *path;
 };

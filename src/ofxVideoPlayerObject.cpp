@@ -3,6 +3,8 @@
 ofxVideoPlayerObject::ofxVideoPlayerObject(char *iPath)
 {
   player = new ofxAVFVideoPlayer();
+
+  path = iPath; // Holding onto path for reload.
   
   player->loadMovie(iPath);
   player->getTextureReference().texData.bFlipTexture = true;
@@ -87,4 +89,11 @@ void ofxVideoPlayerObject::setCentered(bool iEnable)
 void ofxVideoPlayerObject::useShaders(string vert, string frag) {
   mShader = new ofShader();
   mShader->load(vert, frag);
+}
+
+void ofxVideoPlayerObject::reload()
+{
+  player->stop();
+  player->close();
+  player->loadMovie(path);
 }

@@ -23,8 +23,14 @@ public:
   void dragEvent(ofDragInfo dragInfo);
   void gotMessage(ofMessage msg);
   
-  ofxVideoPlayerObject* loadMovie();
-  void setFilepaths(vector<char *> &iVec);
+  ofxVideoPlayerObject*   loadMovie();
+  void                    setupFilepaths(vector<char *> &iFilepaths);
+  
+  void                    playCurMovie();
+  void                    stopCurMovie();
+  void                    closeCurMovie();
+  void                    reloadCurMovie();
+  void                    stopAllMovies();
   
 public:
   ofxScene						*scene;
@@ -34,11 +40,12 @@ public:
 
   ofVec2f vidDimensions;
   ofVec3f origin;
-  float vidScale;
   float gap;
   float curX;
+  float vidScale;
   int curRow;
   int curPathIndex;
+  int curMovieIndex;
   
 };
 
